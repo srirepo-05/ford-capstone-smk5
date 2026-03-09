@@ -1,0 +1,49 @@
+<!-- Toast notification banner — sits at the top-right corner of the screen -->
+<!-- It only renders when toastService.currentToast() is not null          -->
+
+<!-- @if(...; as toast) — reads the signal and aliases the value to "toast" for use inside the block -->
+<!-- fixed top-6 right-6 positions the banner in the viewport corner regardless of scroll position  -->
+@if (toastService.currentToast(); as toast) {
+  <div
+    class="fixed top-6 right-6 z-50 flex items-start gap-3 min-w-72 max-w-sm
+           rounded-xl shadow-2xl px-4 py-3 text-white text-sm font-medium
+           animate-fade-in-down"
+    [class]="toast.type === 'success' ? 'bg-emerald-500' :
+             toast.type === 'error'   ? 'bg-red-500'     : 'bg-blue-500'"
+    role="alert"        
+    aria-live="polite"  
+  >
+    <!-- Icon: changes based on toast type -->
+    @if (toast.type === 'success') {
+      <svg class="w-5 h-5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5 13l4 4L19 7" />
+      </svg>
+    } @else if (toast.type === 'error') {
+      <svg class="w-5 h-5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    } @else {
+      <svg class="w-5 h-5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+      </svg>
+    }
+
+    <!-- Toast message text -->
+    <span class="flex-1 leading-snug">{{ toast.message }}</span>
+
+    <!-- Dismiss (×) button -->
+    <button
+      (click)="toastService.hideToast()"
+      class="ml-2 text-white/70 hover:text-white transition-colors"
+      aria-label="Dismiss notification"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+}

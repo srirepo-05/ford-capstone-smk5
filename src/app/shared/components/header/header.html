@@ -1,0 +1,215 @@
+<!-- sticky top-0 keeps the navbar visible as the user scrolls; z-50 ensures it sits above page content -->
+<nav class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <a
+        routerLink="/"
+        class="flex items-center gap-2 text-blue-600 font-extrabold text-xl tracking-tight hover:text-blue-700 transition-colors"
+      >
+        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+            />
+          </svg>
+        </div>
+        SRIStore
+      </a>
+
+      <!-- Right Side: Nav links + Auth + Cart + Mobile Toggle -->
+      <div class="flex items-center gap-1">
+        <!-- Desktop nav links — hidden on mobile, visible from sm breakpoint up -->
+        <!-- routerLinkActive adds the class when this route is the active URL -->
+        <!-- [routerLinkActiveOptions]="{exact: true}" prevents "/" from matching every route -->
+        <a
+          routerLink="/"
+          routerLinkActive="bg-blue-50 text-blue-600 font-semibold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hidden sm:block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all"
+        >
+          Home
+        </a>
+        <a
+          routerLink="/products"
+          routerLinkActive="bg-blue-50 text-blue-600 font-semibold"
+          class="hidden sm:block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium transition-all"
+        >
+          Products
+        </a>
+
+        <div class="flex items-center gap-3 ml-2">
+        <!-- Admin Dashboard button (admins) OR Cart icon (regular users / guests) -->
+        <!-- authService.isAdmin() reads the signal — this block updates automatically on login/logout -->
+        @if (authService.isAdmin()) {
+          <a
+            routerLink="/admin/dashboard"
+            routerLinkActive="bg-blue-100 text-blue-700"
+            class="relative flex items-center justify-center w-10 h-10 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all"
+            title="Admin Dashboard"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6z
+                       M14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z
+                       M4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2z
+                       M14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              />
+            </svg>
+          </a>
+        } @else {
+          <a
+            routerLink="/cart"
+            class="relative flex items-center justify-center w-10 h-10 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all"
+            title="Shopping Cart"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            <!-- Cart badge: only visible when itemCount() > 0 -->
+            @if (cartService.itemCount() > 0) {
+              <span
+                class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center leading-none"
+              >
+                {{ cartService.itemCount() }}
+              </span>
+            }
+          </a>
+        }
+
+        <!-- Auth: show user info + logout when logged in, login button when logged out -->
+        @if (authService.isLoggedIn()) {
+          <div class="hidden sm:flex items-center gap-2">
+            <!-- Role badge -->
+            @if (authService.isAdmin()) {
+              <span class="text-xs font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full"
+                >Admin</span
+              >
+            }
+            <!-- Display name -->
+            <span class="text-sm font-semibold text-gray-700">
+              {{ authService.currentUser()?.displayName }}
+            </span>
+            <!-- Logout -->
+            <button
+              (click)="logout()"
+              class="text-sm font-medium text-gray-500 hover:text-red-500 transition-colors px-2 py-1 rounded-lg hover:bg-red-50"
+            >
+              Logout
+            </button>
+          </div>
+        } @else {
+          <a
+            routerLink="/login"
+            class="hidden sm:inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+              />
+            </svg>
+            Login
+          </a>
+        }
+
+        <!-- Mobile menu toggle -->
+        <button
+          (click)="toggleMobileMenu()"
+          class="sm:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            @if (!isMobileMenuOpen()) {
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            } @else {
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            }
+          </svg>
+        </button>
+        </div><!-- end inner flex gap-3 -->
+      </div><!-- end outer right-side flex -->
+    </div>
+
+    <!-- Mobile Menu Dropdown — controlled by the isMobileMenuOpen signal -->
+    @if (isMobileMenuOpen()) {
+      <div class="sm:hidden border-t border-gray-100 py-3 space-y-1">
+        <a
+          routerLink="/"
+          (click)="closeMobileMenu()"
+          routerLinkActive="bg-blue-50 text-blue-600 font-semibold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
+        >
+          Home
+        </a>
+        <a
+          routerLink="/products"
+          (click)="closeMobileMenu()"
+          routerLinkActive="bg-blue-50 text-blue-600 font-semibold"
+          class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
+        >
+          Products
+        </a>
+        <a
+          routerLink="/about"
+          (click)="closeMobileMenu()"
+          routerLinkActive="bg-blue-50 text-blue-600 font-semibold"
+          class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
+        >
+          About
+        </a>
+
+        <!-- Mobile auth -->
+        <div class="border-t border-gray-100 pt-2 mt-1">
+          @if (authService.isLoggedIn()) {
+            <div class="px-4 py-2 flex items-center justify-between">
+              <span class="text-sm font-semibold text-gray-700">
+                {{ authService.currentUser()?.displayName }}
+                @if (authService.isAdmin()) {
+                  <span
+                    class="ml-1.5 text-xs font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full"
+                    >Admin</span
+                  >
+                }
+              </span>
+              <button
+                (click)="logout(); closeMobileMenu()"
+                class="text-sm text-red-500 font-semibold hover:text-red-600 transition-colors"
+              >
+                Logout
+              </button>
+            </div>
+          } @else {
+            <a
+              routerLink="/login"
+              (click)="closeMobileMenu()"
+              class="block text-blue-600 font-semibold px-4 py-2.5 rounded-lg text-sm hover:bg-blue-50 transition-all"
+            >
+              Login
+            </a>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</nav>

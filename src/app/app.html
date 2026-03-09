@@ -1,0 +1,21 @@
+<!-- Root layout shell — always visible regardless of the current route -->
+<div class="min-h-screen flex flex-col">
+
+	<!-- Sticky navbar, always at the top -->
+	<app-header></app-header>
+
+	<!-- flex-1 makes <main> expand to fill remaining vertical space,
+	     which pushes the footer to the bottom even on short pages -->
+	<main class="app-page flex-1">
+		<div class="app-container">
+			<!-- Angular swaps this placeholder with the component matching the current URL -->
+			<router-outlet></router-outlet>
+		</div>
+	</main>
+
+	<app-footer></app-footer>
+
+	<!-- Global toast notification — always present, only visible when a message is set -->
+	<app-toast></app-toast>
+</div>
+

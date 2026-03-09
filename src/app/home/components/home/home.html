@@ -1,0 +1,321 @@
+<div class="min-h-screen bg-gray-50">
+  <!-- ── Hero Section ────────────────────────────────────────────────────── -->
+  <section class="relative bg-[#0a1628] text-white overflow-hidden w-full">
+
+    <!-- Geometric grid overlay for depth -->
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <!-- Glowing accent blobs -->
+    <div class="absolute top-0 right-0 w-125 h-125 bg-blue-600 opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-400 opacity-10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
+
+    <div class="relative w-full px-4 sm:px-6 lg:px-8 py-24 md:py-36">
+      <div class="mx-auto max-w-7xl">
+
+        <div class="md:grid md:grid-cols-2 md:gap-16 md:items-center">
+
+          <!-- Left: copy -->
+          <div>
+            <!-- Eyebrow label -->
+            <div class="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
+              <span class="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></span>
+              New Arrivals — 2026
+            </div>
+
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-black leading-[1.05] mb-6 tracking-tight">
+              The Store<br/>
+              <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300">
+                Built for You.
+              </span>
+            </h1>
+
+            <div class="flex flex-wrap gap-4">
+              <a routerLink="/products"
+                 class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+                Shop Now
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Trust Badges ─────────────────────────────────────────────────────── -->
+  <!-- Trust badges — full-bleed section so the band spans the viewport width -->
+  <section class="bg-white border-b border-gray-100 w-full">
+    <div class="w-full px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 p-5 rounded-2xl hover:bg-gray-50 transition-colors">
+          <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
+            <svg
+              class="w-6 h-6 text-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Free Shipping</h3>
+            <p class="text-sm text-gray-500">On all orders over $50</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 p-5 rounded-2xl hover:bg-gray-50 transition-colors">
+          <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center shrink-0">
+            <svg
+              class="w-6 h-6 text-green-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Secure Payment</h3>
+            <p class="text-sm text-gray-500">100% protected checkout</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 p-5 rounded-2xl hover:bg-gray-50 transition-colors">
+          <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
+            <svg
+              class="w-6 h-6 text-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">24/7 Support</h3>
+            <p class="text-sm text-gray-500">We're always here to help</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Products ─────────────────────────────────────────────────── -->
+  <section class="py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="flex justify-between items-end mb-10">
+        <div>
+          <p class="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-1">
+            Hand-picked for you
+          </p>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Featured Products</h2>
+        </div>
+        <a
+          routerLink="/products"
+          class="hidden sm:flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+        >
+          View all
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Async pipe: subscribes to homeVM$, unsubscribes on destroy, and stores the current value in "vm" -->
+      @if (homeVM$ | async; as vm) {
+        <!-- Loading Spinner — shown while the HTTP request is in-flight (vm.loading = true from startWith) -->
+        @if (vm.loading) {
+          <div class="flex items-center justify-center py-24">
+            <div
+              class="animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-blue-600"
+            ></div>
+          </div>
+        }
+
+        <!-- Error State -->
+        @else if (vm.error) {
+          <div class="bg-red-50 border border-red-200 rounded-2xl p-8 text-center">
+            <p class="text-red-600 font-medium">{{ vm.error }}</p>
+          </div>
+        }
+
+        <!-- Product Cards -->
+        @else if (vm.featuredProducts) {
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            @for (product of vm.featuredProducts; track product.id) {
+              <article
+                class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden"
+              >
+                <!-- Image -->
+                <a
+                  [routerLink]="['/products', product.id]"
+                  class="block relative bg-gray-50 h-52 overflow-hidden"
+                >
+                  <img
+                    [src]="product.image"
+                    [alt]="product.title"
+                    class="w-full h-full object-contain p-5 group-hover:scale-105 transition-transform duration-300"
+                  />
+                 
+                </a>
+
+                <!-- Card Body -->
+                <div class="p-4 flex flex-col flex-1">
+                  <!-- Category -->
+                  <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider mb-1">
+                    {{ product.category }}
+                  </span>
+
+                  <!-- Title -->
+                  <a [routerLink]="['/products', product.id]">
+                    <h3
+                      class="text-sm font-semibold text-gray-800 mb-3 line-clamp-2 hover:text-blue-600 transition-colors leading-snug"
+                    >
+                      {{ product.title }}
+                    </h3>
+                  </a>
+
+                  <!-- Stars + count -->
+                  <!-- @for iterates [1,2,3,4,5]; Math.floor(rate) determines how many filled stars to show -->
+                  <div class="flex items-center gap-1.5 mb-4">
+                    <div class="flex text-amber-400">
+                      @for (star of [1, 2, 3, 4, 5]; track star) {
+                        @if (star <= Math.floor(product.rating.rate)) {
+                          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
+                          </svg>
+                        } @else {
+                          <svg
+                            class="w-3.5 h-3.5 text-gray-200"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            />
+                          </svg>
+                        }
+                      }
+                    </div>
+                    <span class="text-xs text-gray-400">({{ product.rating.count }})</span>
+                  </div>
+
+                  <!-- Price + CTA -->
+                  <div class="mt-auto pt-3 border-t border-gray-50">
+                    @if (!isStepperOpen(product.id)) {
+                      <!-- Default state: price on left, Add to Cart button on right -->
+                      <div class="flex items-center justify-between">
+                        <span class="text-lg font-extrabold text-gray-900">
+                          ${{ product.price.toFixed(2) }}
+                        </span>
+
+                        <!-- Add to Cart hidden for admin users -->
+                        @if (!authService.isAdmin()) {
+                          <button
+                            (click)="openStepper(product.id)"
+                            class="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-2 rounded-lg transition-colors"
+                          >
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                              />
+                            </svg>
+                            Add to Cart
+                          </button>
+                        } @else {
+                          <!-- Admin view: read-only badge -->
+                          <span class="text-xs text-gray-400 italic">Admin view</span>
+                        }
+                      </div>
+                    } @else {
+                      <!-- Stepper state: − qty + | Confirm | ✕ -->
+                      <div class="flex items-center gap-1.5 w-full">
+                        <!-- Decrement button -->
+                        <button
+                          (click)="decrement(product.id)"
+                          class="w-7 h-7 flex items-center justify-center rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-sm transition-colors"
+                        >−</button>
+
+                        <!-- Quantity display -->
+                        <span class="w-6 text-center text-sm font-semibold text-gray-800">
+                          {{ getQuantity(product.id) }}
+                        </span>
+
+                        <!-- Increment button -->
+                        <button
+                          (click)="increment(product.id)"
+                          class="w-7 h-7 flex items-center justify-center rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-sm transition-colors"
+                        >+</button>
+
+                        <!-- Confirm / add to cart -->
+                        <button
+                          (click)="addToCart(product)"
+                          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-1.5 rounded-md transition-colors"
+                        >✓ Add {{ getQuantity(product.id) }}</button>
+
+                        <!-- Cancel / close stepper -->
+                        <button
+                          (click)="closeStepper(product.id)"
+                          class="w-7 h-7 flex items-center justify-center rounded-md bg-gray-100 hover:bg-red-100 text-gray-500 hover:text-red-500 text-sm transition-colors"
+                        >✕</button>
+                      </div>
+                    }
+                  </div>
+                </div>
+              </article>
+            }
+          </div>
+
+          <!-- Mobile "View All" link -->
+          <div class="sm:hidden text-center mt-8">
+            <a
+              routerLink="/products"
+              class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+            >
+              View all products
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
+          </div>
+        }
+      }
+    </div>
+  </section>
+</div>
